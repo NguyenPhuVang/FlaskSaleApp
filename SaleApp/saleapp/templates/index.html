@@ -12,24 +12,22 @@
     <link href="{{ url_for('static', filename='css/style.css')}} " rel="stylesheet"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">APPLE BÁN HÀNG TRỰC TUYẾN</a>
-        {% for cate in categories%}
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('products_list')}}">APPLE BÁN HÀNG TRỰC TUYẾN</a>
+            {% for cate in categories%}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">{{ cate.name }}</a>
-                        </li>
-                    </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('products_list', category_id = cate.id) }}">{{ cate.name }}</a>
+                    </li>
+                </ul>
             </div>
-        {% endfor %}
-    </div>
-</nav>
-
-</div>
+            {% endfor %}
+        </div>
+    </nav>
 </body>
 </html>
